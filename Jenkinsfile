@@ -13,18 +13,14 @@ apiVersion: v1
 kind: Pod
 spec:
   containers:
-  - name: kubectl
-    image: public.ecr.aws/eks/kubectl-aws-cli:v1.28.5
-    command:
-    - cat
-    tty: true
-  - name: docker
-    image: docker:23.0-dind
+   should be able to successfully pull the images from Docker Hub, the agent pod will start, and your pipeline will finally be able to execute- name: tools
+    # This is a community image on Docker Hub that contains kubectl, aws-cli, and docker
+    image: cnadim/jenkins-aws-kubectl-docker:2.3
     command:
     - cat
     tty: true
     securityContext:
-      privileged: true # Docker-in-Docker requires privileged mode
+      privileged: true
     volumeMounts:
     - mountPath: /var/run/docker.sock
       name: docker-sock
