@@ -15,7 +15,7 @@ spec:
   containers:
   - name: tools
     # This is a community image from Docker Hub with all necessary tools
-    image: cnadim/jenkins-aws-kubectl-docker:2.3
+    image: bearengineer/awscli-kubectl:latest
     command:
     - cat
     tty: true
