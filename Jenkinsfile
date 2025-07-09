@@ -79,7 +79,7 @@ spec:
             steps {
                 script {
                     echo "Deploying image ${env.IMAGE_URI} to color: ${env.INACTIVE_COLOR}"
-                    def manifest = readFile 'kubernetes/app/deployment.yaml'
+                    def manifest = readFile 'kubernetes/app/deployment-tpl.yaml'
                     manifest = manifest.replace('{{COLOR}}', env.INACTIVE_COLOR)
                     manifest = manifest.replace('{{IMAGE_URI}}', env.IMAGE_URI)
                     
