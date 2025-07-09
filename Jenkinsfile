@@ -13,8 +13,6 @@ apiVersion: v1
 kind: Pod
 spec:
   containers:
-   should be able to successfully pull the images from Docker Hub, the agent pod will start, and your pipeline will finally be able to execute- name: tools
-    # This is a community image on Docker Hub that contains kubectl, aws-cli, and docker
     image: cnadim/jenkins-aws-kubectl-docker:2.3
     command:
     - cat
