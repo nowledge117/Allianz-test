@@ -29,7 +29,7 @@ spec:
     hostPath:
       path: /var/run/docker.sock
 '''
-            defaultContainer 'aws-kubectl'
+            defaultContainer 'tools'
         }
     }
 
