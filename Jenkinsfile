@@ -13,16 +13,18 @@ apiVersion: v1
 kind: Pod
 spec:
   containers:
-  - name: aws-kubectl
-    image: amazon/aws-cli-kubectl:latest
+  - name: kubectl
+    image: public.ecr.aws/eks/kubectl-aws-cli:v1.28.5
     command:
     - cat
     tty: true
   - name: docker
-    image: docker:20.10.17
+    image: docker:23.0-dind
     command:
     - cat
     tty: true
+    securityContext:
+      privileged: true # Docker-in-Docker requires privileged mode
     volumeMounts:
     - mountPath: /var/run/docker.sock
       name: docker-sock
