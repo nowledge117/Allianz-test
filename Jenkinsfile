@@ -13,12 +13,14 @@ apiVersion: v1
 kind: Pod
 spec:
   containers:
+  - name: tools
+    # This is a community image from Docker Hub with all necessary tools
     image: cnadim/jenkins-aws-kubectl-docker:2.3
     command:
     - cat
     tty: true
     securityContext:
-      privileged: true
+      privileged: true # Required for Docker-in-Docker functionality
     volumeMounts:
     - mountPath: /var/run/docker.sock
       name: docker-sock
