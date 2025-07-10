@@ -8,6 +8,7 @@ pipeline {
     agent {
         kubernetes {
             cloud 'kubernetes'
+            serviceAccount 'jenkins'
             yaml '''
 apiVersion: v1
 kind: Pod
